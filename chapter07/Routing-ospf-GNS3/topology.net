@@ -1,0 +1,146 @@
+autostart = False
+version = 0.8.4
+[127.0.0.1:7200]
+    workingdir = C:\Users\cm\AppData\Local\Temp
+    udp = 10001
+    [[2691]]
+        image = C:\ios\c2691-advipservicesk9-mz.124-19.bin
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R1]]
+        model = 2691
+        console = 2101
+        aux = 2501
+        cnfg = configs\R1.cfg
+        wic0/0 = WIC-2T
+        s0/0 = R2 s0/0
+        f0/0 = SW1 1
+        f0/1 = R3 f0/1
+        x = -202.0
+        y = 1.0
+        z = 1.0
+    [[ROUTER R2]]
+        model = 2691
+        console = 2102
+        aux = 2502
+        cnfg = configs\R2.cfg
+        wic0/0 = WIC-2T
+        s0/0 = R1 s0/0
+        s0/1 = R3 s0/1
+        f0/0 = SW3 1
+        x = -64.0
+        y = -220.0
+        z = 1.0
+    [[ROUTER R3]]
+        model = 2691
+        console = 2103
+        aux = 2503
+        cnfg = configs\R3.cfg
+        wic0/0 = WIC-2T
+        s0/1 = R2 s0/1
+        f0/0 = SW4 1
+        f0/1 = R1 f0/1
+        x = 118.0
+        y = 0.0
+        z = 1.0
+    [[ETHSW SW1]]
+        1 = access 1 R1 f0/0
+        x = -391.5
+        y = 9.0
+        z = 1.0
+    [[ETHSW SW3]]
+        1 = access 1 R2 f0/0
+        x = 170.5
+        y = -288.0
+        z = 1.0
+    [[ETHSW SW4]]
+        1 = access 1 R3 f0/0
+        x = 322.5
+        y = 7.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    [[NOTE 1]]
+        text = "172.30.1.0/24"
+        x = -304.0
+        y = -10.0
+    [[NOTE 2]]
+        text = "Lo0:172.30.110.0/24\nLo1:172.30.200.16/28\nL02:172.30.200.32/28"
+        x = 95.0
+        y = 54.0
+    [[NOTE 3]]
+        text = "172.30.100.0/24"
+        x = 208.0
+        y = -12.0
+    [[NOTE 4]]
+        text = "209.165.200.232/30"
+        x = 63.0
+        y = -116.0
+    [[NOTE 5]]
+        text = "10.1.0.0/16"
+        x = 36.0
+        y = -268.0
+    [[NOTE 6]]
+        text = "209.165.200.228/30"
+        x = -232.0
+        y = -110.0
+    [[NOTE 7]]
+        text = "1"
+        x = -4.48906095081
+        y = 15.0645833696
+        interface = SW4 1
+    [[NOTE 8]]
+        text = "1"
+        x = -1.98043859102
+        y = 29.971997818
+        interface = SW3 1
+    [[NOTE 9]]
+        text = "1"
+        x = 75.4969520326
+        y = 15.5062104687
+        interface = SW1 1
+    [[NOTE 10]]
+        text = "f0/0"
+        x = 72.9890609508
+        y = 22.9354166304
+        interface = R3 f0/0
+    [[NOTE 11]]
+        text = "s0/1"
+        x = 2.67864009169
+        y = -43.2076800394
+        interface = R3 s0/1
+    [[NOTE 12]]
+        text = "f0/1"
+        x = -42.9972483296
+        y = 26.4691759335
+        interface = R3 f0/1
+    [[NOTE 13]]
+        text = "f0/0"
+        x = 70.480438591
+        y = 8.02800218205
+        interface = R2 f0/0
+    [[NOTE 14]]
+        text = "s0/1"
+        x = 66.3213599083
+        y = 36.2076800394
+        interface = R2 s0/1
+    [[NOTE 15]]
+        text = "s0/0"
+        x = 12.3264460936
+        y = 56.243308381
+        interface = R2 s0/0
+    [[NOTE 16]]
+        text = "f0/1"
+        x = 72.9972483296
+        y = 21.5308240665
+        interface = R1 f0/1
+    [[NOTE 17]]
+        text = "f0/0"
+        x = -31.9969520326
+        y = 28.4937895313
+        interface = R1 f0/0
+    [[NOTE 18]]
+        text = "s0/0"
+        x = 61.6735539064
+        y = -22.243308381
+        interface = R1 s0/0
